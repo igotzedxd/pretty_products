@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+  min-height: 450px;
+}
+
+.favorites {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+.headings {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+.heading {
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.active {
+  font-weight: 600;
+}
+
+.products {
+    width: 1140px;
+    
+}

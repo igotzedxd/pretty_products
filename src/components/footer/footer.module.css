@@ -1,0 +1,14 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 12dvh;
+  width: 100%;
+  background: rgb(11, 11, 145);
+  display: grid;
+  place-content: center;
+  z-index: 99;
+  color: whitesmoke;
+  font-size: 1.2rem;
+  letter-spacing: 1.2px;
+}
