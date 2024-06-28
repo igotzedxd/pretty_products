@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
-import styles from './header.module.css';
+import styles from "./header.module.css";
+import useFetch from "../../hooks/useFetch";
 
-function Header() {
-  const [state, setState] = useState(null);
+function Header({ title }) {
+  const { data: product } = useFetch("https://dummyjson.com/products/1");
+  if (!product) return null;
 
-  useEffect(() => {
-    // Your effect logic here
-  }, []);
-
+  console.log(product);
   return (
     <div className={styles.container}>
-      Header
+      <div className={styles.inner}>
+        <img src={product.images[0]} />
+        <h2>{title}</h2>
+      </div>
     </div>
   );
 }

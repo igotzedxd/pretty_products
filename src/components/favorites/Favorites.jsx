@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import styles from "./favorites.module.css";
-import Product from "../product/Products";
+import Products from "../products/Products";
 
 function Favorites({ products }) {
   const [userFavorite, setUserFavorite] = useState(true);
   const [myFavorites, setMyFavorites] = useState(
-    JSON.parse(localStorage.getItem("favoriteProducts") || [])
+    JSON.parse(localStorage.getItem("favoriteProducts") || "[]")
   );
 
   if (!products) {
@@ -34,7 +34,7 @@ function Favorites({ products }) {
             Your Favorites
           </h2>
         </div>
-        <Product
+        <Products
           products={filteredProducts}
           myFavorites={myFavorites}
           setMyFavorites={setMyFavorites}

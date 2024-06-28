@@ -1,7 +1,6 @@
 function ProductDetails() {
-  return (
-    <div>ProductDetails</div>
-  );
+  
+  return <div className={`page `}></div>;
 }
 
 export default ProductDetails;

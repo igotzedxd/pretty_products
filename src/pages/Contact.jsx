@@ -1,6 +1,12 @@
+import Header from "../components/header/Header";
+import Newsletter from "../components/newsletter/Newsletter";
+
 function Contact() {
   return (
-    <div>Contact</div>
+    <div className={`page `}>
+      <Header title="Contact" />
+      <Newsletter contact={true} />
+    </div>
   );
 }
 

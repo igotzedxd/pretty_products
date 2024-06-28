@@ -34,44 +34,47 @@ function Product({ products, myFavorites, setMyFavorites }) {
     const newFavorites =
       type === "add"
         ? [...myFavorites, product]
-        : myFavorites.filter((favorite) => favorite.id !== product.id);
+        : type === "remove" && myFavorites.filter((favorite) => favorite.id !== product.id);
     setMyFavorites(newFavorites);
     localStorage.setItem("favoriteProducts", JSON.stringify(newFavorites));
   };
 
   return (
     <div className={styles.products}>
-      {products?.map((product) => (
-        <div className={styles.product} key={product.id}>
-          <img src={product.thumbnail} alt={product.title} />
-          <h3>{product.title}</h3>
-          {favoriteIds.includes(product.id) ? (
-            hoverId === product.id ? (
-              <FaHeartBroken
-                className={styles.favBtn}
-                onClick={(e) => handleFavorite(e, product, "remove")}
-                onMouseOver={() => !isMobile && setHoverId(product.id)}
-                onMouseLeave={() => !isMobile && setHoverId(null)}
-              />
+      <div className={styles.container}>
+        {products?.map((product) => (
+          <div className={styles.product} key={product.id}>
+            <img src={product.thumbnail} alt={product.title} />
+            <h3>{product.title}</h3>
+            {favoriteIds.includes(product.id) ? (
+              hoverId === product.id ? (
+                <FaHeartBroken
+                  className={styles.favBtn}
+                  onClick={(e) => handleFavorite(e, product, "remove")}
+                  onMouseOver={() => !isMobile && setHoverId(product.id)}
+                  onMouseLeave={() => !isMobile && setHoverId(null)}
+                />
+              ) : (
+                <FaHeart
+                  className={styles.favBtn}
+                  onClick={(e) => handleFavorite(e, product, "remove")}
+                  onMouseOver={() => !isMobile && setHoverId(product.id)}
+                  onMouseLeave={() => !isMobile && setHoverId(null)}
+                />
+              )
             ) : (
-              <FaHeart
-                className={styles.favBtn}
-                onClick={(e) => handleFavorite(e, product, "remove")}
+              <FaRegHeart
+                className={`${styles.favBtn} ${hoverId === product.id && styles.regFavBtn}`}
+                onClick={(e) => handleFavorite(e, product, "add")}
                 onMouseOver={() => !isMobile && setHoverId(product.id)}
                 onMouseLeave={() => !isMobile && setHoverId(null)}
               />
-            )
-          ) : (
-            <FaRegHeart
-              className={styles.favBtn}
-              onClick={(e) => handleFavorite(e, product, "add")}
-              onMouseOver={() => !isMobile && setHoverId(product.id)}
-              onMouseLeave={() => !isMobile && setHoverId(null)}
-            />
-          )}
-        </div>
-      ))}
-      {!products && <p>No products found.</p>}
+            )}
+          </div>
+        ))}
+        {products?.length % 3 === 2 && <div className={styles.noProduct}></div>}
+        {!products && <p>No products found.</p>}
+      </div>
     </div>
   );
 }

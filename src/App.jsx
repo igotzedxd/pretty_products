@@ -3,7 +3,7 @@ import Layout from "./Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Products from "./pages/Products";
+import ProductsPage from "./pages/ProductsPage";
 import ProductDetails from "./pages/ProductDetails";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       path: "/products",
       element: (
         <Layout>
-          <Products />
+          <ProductsPage />
         </Layout>
       ),
     },

@@ -15,7 +15,7 @@
   flex-flow: row nowrap;
   gap: 2rem;
   justify-content: center;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 .heading {
   font-weight: 400;
@@ -27,6 +27,5 @@
 }
 
 .products {
-    width: 1140px;
-    
+  width: 1140px;
 }
